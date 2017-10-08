@@ -1,0 +1,11 @@
+version: '2'
+services:
+  hello-world-java:
+    image: hello-world-java:latest
+    container_name: hello-world-java
+    volumes:
+      - /var/log/services/hello-world-java/:/logs/
+    environment:
+      - environment=dev
+    ports:
+      - "8081:8080"
