@@ -1,9 +1,7 @@
-FROM frolvlad/alpine-oraclejdk8:slim
+FROM openjdk:8-jre-alpine
 
 EXPOSE 8080
 
-ADD target/hello-world-java-0.0.1-SNAPSHOT.jar hello-world-java.jar
+COPY target/hello-world-java-0.0.1-SNAPSHOT.jar /hello-world-java.jar
 
-RUN sh -c 'touch /hello-world-java.jar'
-
-ENTRYPOINT [ "sh", "-c", "java -jar /hello-world-java.jar" ]
+CMD ["/usr/bin/java", "-jar", "hello-world-java.jar"]
